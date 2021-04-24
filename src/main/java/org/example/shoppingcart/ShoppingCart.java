@@ -11,7 +11,7 @@ public class ShoppingCart {
         return empty;
     }
 
-    public void addItem(Item item) {
+    public void addItem(final Item item) {
         listOfItems.add(item);
         empty = false;
     }
