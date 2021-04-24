@@ -17,7 +17,7 @@ public class ShoppingCartTest {
     public void testAddItemInEmptyCartThenGetSubtotalAsPriceOfItem(){
         //Arrange
         ShoppingCart testShoppingCart = new ShoppingCart();
-        Item testItem = new Item(5.40);
+        Item testItem = new Item("apple",5.40);
 
         //Act
         testShoppingCart.addItem(testItem);
@@ -30,14 +30,14 @@ public class ShoppingCartTest {
     public void testAddItemInFullCartThenGetSubtotalAsPriceOfAllItems(){
         //Arrange
         ShoppingCart testShoppingCart = new ShoppingCart();
-        Item testItem1 = new Item(5.40);
-        Item testItem2 = new Item(7.60);
-        Item testItem3 = new Item(2.00);
+        Item testItem1 = new Item("apple",5.40);
+        Item testItem2 = new Item("toothpaste", 7.60);
+        Item testItem3 = new Item("gum", 2.00);
         testShoppingCart.addItem(testItem1);
         testShoppingCart.addItem(testItem2);
         testShoppingCart.addItem(testItem3);
         //Act
-        testShoppingCart.addItem(new Item(5.00));
+        testShoppingCart.addItem(new Item("soap", 5.00));
 
         //Assert
         assertEquals(testShoppingCart.getSubtotal(), 20.00,20.00/1000000000.0);
@@ -52,5 +52,24 @@ public class ShoppingCartTest {
 
         //Assert
         assertTrue(testShoppingCart.isEmpty());
+    }
+
+
+    // Map is Key, Value (Milk, 5)
+    // When you add an item, first check if that item exist in Map? If yes, get existing qty & +1.
+    // subtotal will be Key (Milk).getPrice() * Value (Qty)
+
+    @Test
+    public void testAddExistingItemThenUpdateQuantity() {
+        //Arrange
+        ShoppingCart testShoppingCart = new ShoppingCart();
+        Item testItem1 = new Item("apple", 5.40);
+        testShoppingCart.addItem(testItem1);
+
+        //Act
+        testShoppingCart.addItem(testItem1);
+
+        //Assert
+        assertEquals(testShoppingCart.getQuantity(testItem1), 2);
     }
 }
