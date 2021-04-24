@@ -1,20 +1,20 @@
 package org.example.shoppingcart;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ShoppingCart {
-    private boolean empty = true;
- //   private List<Item> listOfItems = new ArrayList<>();
-
     // Map<Item, Quantity>
-    private Map<Item, Integer> mapOfItems = new HashMap<>();
+    private final Map<Item, Integer> mapOfItems = new HashMap<>();
+    //   private List<Item> listOfItems = new ArrayList<>();
+    private boolean empty = true;
 
     public boolean isEmpty() {
         return empty;
     }
 
     public void addItem(final Item item) {
-  //      listOfItems.add(item);
+        //      listOfItems.add(item);
         int quantity = 0;
         if (mapOfItems.containsKey(item)) {
             quantity = mapOfItems.get(item) + 1;

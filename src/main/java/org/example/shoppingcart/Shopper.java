@@ -1,7 +1,7 @@
 package org.example.shoppingcart;
 
 public class Shopper {
-    private ShoppingCart shoppingCart;
+    private final ShoppingCart shoppingCart;
 
     public Shopper() {
         this.shoppingCart = new ShoppingCart();

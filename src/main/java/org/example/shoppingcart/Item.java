@@ -4,16 +4,16 @@ import java.util.Objects;
 
 public class Item {
 
-    private String name;
-    private double price;
+    private final String name;
+    private final double price;
 
     public Item(final String name,
-                final double price){
+                final double price) {
         this.price = price;
         this.name = name;
     }
 
-    public double getPrice(){
+    public double getPrice() {
         return this.price;
     }
 
