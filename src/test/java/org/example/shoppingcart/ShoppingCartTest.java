@@ -72,3 +72,4 @@ public class ShoppingCartTest {
         assertEquals(testShoppingCart.getQuantity(testItem1), 2);
     }
 }
+                                                                                                                                      
